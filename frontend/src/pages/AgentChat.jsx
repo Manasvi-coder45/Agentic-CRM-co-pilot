@@ -8,14 +8,14 @@ const SUGGESTIONS = [
 ]
 
 const TOOL_LABELS = {
-  get_at_risk_deals:     '🔍 Scanning for at-risk deals...',
-  get_all_deals:         '📋 Fetching all deals...',
-  get_all_contacts:      '👥 Loading contacts...',
-  get_contact_by_id:     '👤 Fetching contact details...',
-  get_deal_by_id:        '◎ Fetching deal details...',
-  get_deal_health_scores:'📊 Computing health scores...',
-  update_deal_stage:     '✏️ Updating deal stage...',
-  draft_followup_email:  '✉️ Drafting follow-up email...',
+  get_at_risk_deals: '🔍 Scanning for at-risk deals...',
+  get_all_deals: '📋 Fetching all deals...',
+  get_all_contacts: '👥 Loading contacts...',
+  get_contact_by_id: '👤 Fetching contact details...',
+  get_deal_by_id: '◎ Fetching deal details...',
+  get_deal_health_scores: '📊 Computing health scores...',
+  update_deal_stage: '✏️ Updating deal stage...',
+  draft_followup_email: '✉️ Drafting follow-up email...',
 }
 
 function StreamingSteps({ steps }) {
@@ -79,10 +79,10 @@ export default function AgentChat() {
     role: 'agent',
     content: "Hi! I'm your CRM Co-Pilot. I can find at-risk deals, check health scores, draft follow-up emails, update deal stages, and more. What would you like me to do?"
   }])
-  const [input, setInput]       = useState('')
-  const [loading, setLoading]   = useState(false)
-  const bottomRef               = useRef(null)
-  const eventSourceRef          = useRef(null)
+  const [input, setInput] = useState('')
+  const [loading, setLoading] = useState(false)
+  const bottomRef = useRef(null)
+  const eventSourceRef = useRef(null)
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -109,7 +109,9 @@ export default function AgentChat() {
       streaming: true
     }])
 
-    const url = `http://127.0.0.1:8000/agent/stream?message=${encodeURIComponent(message)}`
+    const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+    const url = `${BASE_URL}/agent/stream?message=${encodeURIComponent(message)}`
+
     const es = new EventSource(url)
     eventSourceRef.current = es
 

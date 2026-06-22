@@ -20,7 +20,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://localhost:5173",          # if using Vite
-        "https://agentic-crm-frontend.onrender.com/",  # add after you know exact URL
+        "https://agentic-crm-frontend.onrender.com",  # add after you know exact URL
     ],
     allow_credentials=True,
     allow_methods=["*"],
