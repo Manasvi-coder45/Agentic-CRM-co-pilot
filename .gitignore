@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# Node
+node_modules/
+frontend/dist/
+
+# DB files
+*.db
+*.sqlite
+
+# Chroma
+chroma_db/
+
+# OS
+.DS_Store
+EOF
