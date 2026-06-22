@@ -30,7 +30,7 @@ React Frontend  →  FastAPI Backend  →  LangGraph Agent  →  Groq LLM
 | AI Agent    | LangGraph, LangChain              |
 | LLM         | Groq API — LLaMA 3.3 70B         |
 | Database    | SQLite (dev) / PostgreSQL (prod)  |
-| Deploy      | Railway (backend), Vercel (frontend) |
+| Deploy      | Render |
 
 ## Agent Capabilities
 
