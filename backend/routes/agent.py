@@ -42,7 +42,7 @@ def stream_agent(message: str):
         headers={
             "Cache-Control": "no-cache",
             "X-Accel-Buffering": "no",
-            "Access-Control-Allow-Origin": "http://localhost:5173"
+            "Access-Control-Allow-Origin": "*"
         }
     )
 
