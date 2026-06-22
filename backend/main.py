@@ -17,7 +17,11 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:5173",          # if using Vite
+        "https://agentic-crm-co-pilot-frontend.onrender.com",  # add after you know exact URL
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
