@@ -5,7 +5,8 @@ from database import SessionLocal
 from models.activity_log import ActivityLog
 from agent.scoring import calculate_health_score
 
-BASE_URL = "http://localhost:8000"
+import os
+BASE_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 def _log(action_type: str, tool_name: str, summary: str,
          entity_type: str = None, entity_id: int = None,
